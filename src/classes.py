@@ -18,8 +18,8 @@ class HeadHunterApi(Job):
     def connect_api(self):
         return self.__url
 
-    def get_vacancies(self, surch_text):
-        params = {"text": surch_text}
+    def get_vacancies(self, search_text):
+        params = {"text": search_text}
         response = requests.get(self.__url, params=params)
         if response.status_code == 200:
             vacancies = response.json()["items"]
@@ -37,9 +37,9 @@ class SuperJob(Job):
     def connect_api(self):
         return self.__url
 
-    def get_vacancies(self, surch_text):
+    def get_vacancies(self, search_text):
         api_key = {'X-Api-App-Id': 'v3.h.4455282.7eb36007ef58eb15c52a61399870fe45fa6e854d.1fda0d61019317af27f3361fe0d54e6e149fef37'}
-        params = {"keyword": surch_text}
+        params = {"keyword": search_text}
         response = requests.get(self.__url, headers=api_key, params=params)
         if response.status_code == 200:
             vacancies = response.json()["objects"]
@@ -55,3 +55,13 @@ v.get_vacancies('репетитор')
 print('--------------------------------')
 a = SuperJob()
 a.get_vacancies('репетитор')
+
+class Vacancy:
+    def __init__(self, name_vacancy, url_vacancy, salary_from, salary_to=None, work_experience):
+        self.name_vacancy = name_vacancy
+        self.url_vacancy = url_vacancy
+        self.salary_from = salary_from
+        self.salary_to = salary_to
+        self.experience = work_experience
+        pass
+

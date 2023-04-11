@@ -276,6 +276,82 @@
         "accept_incomplete_resumes": false
     },
     {
+        "id": "79173735",
+        "premium": true,
+        "name": "Педагог по раннему развитию детей",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "1",
+            "name": "Москва",
+            "url": "https://api.hh.ru/areas/1"
+        },
+        "salary": {
+            "from": 60000,
+            "to": 62000,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Москва",
+            "street": "бульвар Маршала Рокоссовского",
+            "building": "6к1В",
+            "lat": 55.810987,
+            "lng": 37.728146,
+            "description": null,
+            "raw": "Москва, бульвар Маршала Рокоссовского, 6к1В",
+            "metro": null,
+            "metro_stations": [],
+            "id": "1552663"
+        },
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2023-04-11T17:16:27+0300",
+        "created_at": "2023-04-11T17:16:27+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=79173735",
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/79173735?host=hh.ru",
+        "adv_response_url": null,
+        "alternate_url": "https://hh.ru/vacancy/79173735",
+        "relations": [],
+        "employer": {
+            "id": "3507855",
+            "name": "Детский клуб Kids UP",
+            "url": "https://api.hh.ru/employers/3507855",
+            "alternate_url": "https://hh.ru/employer/3507855",
+            "logo_urls": {
+                "original": "https://hhcdn.ru/employer-logo-original/1020441.jpeg",
+                "240": "https://hhcdn.ru/employer-logo/5702533.jpeg",
+                "90": "https://hhcdn.ru/employer-logo/5702532.jpeg"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3507855",
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Высшее (или среднее-специальное) педагогическое, психологическое или логопедическое образование. Опыт работы с детьми дошкольного возраста и младшего школьного возраста. ",
+            "responsibility": "Проведение занятий по раннему развитию детей (до 6 детей в группе, дети от 3 года до 4 лет). "
+        },
+        "contacts": null,
+        "schedule": null,
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "professional_roles": [
+            {
+                "id": "132",
+                "name": "Учитель, преподаватель, педагог"
+            }
+        ],
+        "accept_incomplete_resumes": false
+    },
+    {
         "id": "79126061",
         "premium": false,
         "name": "Помощник по воспитанию",
@@ -513,6 +589,81 @@
         "accept_incomplete_resumes": false
     },
     {
+        "id": "78395997",
+        "premium": false,
+        "name": "Куратор основных курсов",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "2",
+            "name": "Санкт-Петербург",
+            "url": "https://api.hh.ru/areas/2"
+        },
+        "salary": {
+            "from": null,
+            "to": 80000,
+            "currency": "RUR",
+            "gross": true
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": null,
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2023-04-09T11:17:17+0300",
+        "created_at": "2023-04-09T11:17:17+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=78395997",
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/78395997?host=hh.ru",
+        "adv_response_url": null,
+        "alternate_url": "https://hh.ru/vacancy/78395997",
+        "relations": [],
+        "employer": {
+            "id": "3571722",
+            "name": "Rebotica",
+            "url": "https://api.hh.ru/employers/3571722",
+            "alternate_url": "https://hh.ru/employer/3571722",
+            "logo_urls": {
+                "original": "https://hhcdn.ru/employer-logo-original/813312.png",
+                "240": "https://hhcdn.ru/employer-logo/3694136.png",
+                "90": "https://hhcdn.ru/employer-logo/3694135.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3571722",
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Ты ответственный и целеустремленный. Готов к удаленной работе и самоорганизован. Имеешь высокий уровень компьютерной грамотности. 4 игрок на рынке детского...",
+            "responsibility": "Rebotica - EdTech компания по обучению детей программированию, моделированию и дизайну. Индивидуальный подход 1 на 1 в онлайне. Наставник <highlighttext>педагог</highlighttext> <highlighttext>учитель</highlighttext>..."
+        },
+        "contacts": null,
+        "schedule": null,
+        "working_days": [],
+        "working_time_intervals": [
+            {
+                "id": "from_four_to_six_hours_in_a_day",
+                "name": "Можно работать сменами по 4–6 часов в день"
+            }
+        ],
+        "working_time_modes": [
+            {
+                "id": "start_after_sixteen",
+                "name": "Можно начинать работать после 16:00"
+            }
+        ],
+        "accept_temporary": false,
+        "professional_roles": [
+            {
+                "id": "132",
+                "name": "Учитель, преподаватель, педагог"
+            }
+        ],
+        "accept_incomplete_resumes": false
+    },
+    {
         "id": "78800897",
         "premium": false,
         "name": "Учитель-тьютор",
@@ -581,81 +732,6 @@
             }
         ],
         "accept_incomplete_resumes": false
-    },
-    {
-        "id": "78249161",
-        "premium": false,
-        "name": "Преподаватель по раннему развитию детей | Педагог по подготовке к школе | Репетитор-воспитатель",
-        "department": null,
-        "has_test": false,
-        "response_letter_required": false,
-        "area": {
-            "id": "53",
-            "name": "Краснодар",
-            "url": "https://api.hh.ru/areas/53"
-        },
-        "salary": {
-            "from": 28200,
-            "to": 74500,
-            "currency": "RUR",
-            "gross": false
-        },
-        "type": {
-            "id": "open",
-            "name": "Открытая"
-        },
-        "address": null,
-        "response_url": null,
-        "sort_point_distance": null,
-        "published_at": "2023-04-10T08:21:01+0300",
-        "created_at": "2023-04-10T08:21:01+0300",
-        "archived": false,
-        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=78249161",
-        "insider_interview": null,
-        "url": "https://api.hh.ru/vacancies/78249161?host=hh.ru",
-        "adv_response_url": null,
-        "alternate_url": "https://hh.ru/vacancy/78249161",
-        "relations": [],
-        "employer": {
-            "id": "9459523",
-            "name": "Кайф Групп",
-            "url": "https://api.hh.ru/employers/9459523",
-            "alternate_url": "https://hh.ru/employer/9459523",
-            "logo_urls": {
-                "240": "https://hhcdn.ru/employer-logo/5787549.jpeg",
-                "90": "https://hhcdn.ru/employer-logo/5787548.jpeg",
-                "original": "https://hhcdn.ru/employer-logo-original/1041698.jpeg"
-            },
-            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9459523",
-            "trusted": true
-        },
-        "snippet": {
-            "requirement": "ВОСПОЛНЯЕМ ПРОБЕЛЫ ШКОЛЬНОЙ ПРОГРАММЫ И ПРИВИВАЕМ ЛЮБОВЬ К ЗНАНИЯМ.  Обладатель высшего профильного образования и опыта работы от 1,5 лет.  ",
-            "responsibility": "Регулярно актуализировать доступные слоты в календаре на платформе в ЛК. ️ Проводить занятия в виртуальном классе по индивидуальной программе, в соответствии..."
-        },
-        "contacts": null,
-        "schedule": null,
-        "working_days": [],
-        "working_time_intervals": [
-            {
-                "id": "from_four_to_six_hours_in_a_day",
-                "name": "Можно работать сменами по 4–6 часов в день"
-            }
-        ],
-        "working_time_modes": [
-            {
-                "id": "start_after_sixteen",
-                "name": "Можно начинать работать после 16:00"
-            }
-        ],
-        "accept_temporary": true,
-        "professional_roles": [
-            {
-                "id": "132",
-                "name": "Учитель, преподаватель, педагог"
-            }
-        ],
-        "accept_incomplete_resumes": true
     },
     {
         "id": "79143550",
@@ -758,20 +834,95 @@
         "accept_incomplete_resumes": true
     },
     {
-        "id": "79098392",
+        "id": "78249161",
         "premium": false,
-        "name": "Ассистент Монтессори-педагога",
+        "name": "Преподаватель по раннему развитию детей | Педагог по подготовке к школе | Репетитор-воспитатель",
         "department": null,
         "has_test": false,
         "response_letter_required": false,
         "area": {
-            "id": "68",
-            "name": "Омск",
-            "url": "https://api.hh.ru/areas/68"
+            "id": "53",
+            "name": "Краснодар",
+            "url": "https://api.hh.ru/areas/53"
         },
         "salary": {
-            "from": 25000,
-            "to": 35000,
+            "from": 28200,
+            "to": 74500,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": null,
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2023-04-10T08:21:01+0300",
+        "created_at": "2023-04-10T08:21:01+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=78249161",
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/78249161?host=hh.ru",
+        "adv_response_url": null,
+        "alternate_url": "https://hh.ru/vacancy/78249161",
+        "relations": [],
+        "employer": {
+            "id": "9459523",
+            "name": "Кайф Групп",
+            "url": "https://api.hh.ru/employers/9459523",
+            "alternate_url": "https://hh.ru/employer/9459523",
+            "logo_urls": {
+                "240": "https://hhcdn.ru/employer-logo/5787549.jpeg",
+                "90": "https://hhcdn.ru/employer-logo/5787548.jpeg",
+                "original": "https://hhcdn.ru/employer-logo-original/1041698.jpeg"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9459523",
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "ВОСПОЛНЯЕМ ПРОБЕЛЫ ШКОЛЬНОЙ ПРОГРАММЫ И ПРИВИВАЕМ ЛЮБОВЬ К ЗНАНИЯМ.  Обладатель высшего профильного образования и опыта работы от 1,5 лет.  ",
+            "responsibility": "Регулярно актуализировать доступные слоты в календаре на платформе в ЛК. ️ Проводить занятия в виртуальном классе по индивидуальной программе, в соответствии..."
+        },
+        "contacts": null,
+        "schedule": null,
+        "working_days": [],
+        "working_time_intervals": [
+            {
+                "id": "from_four_to_six_hours_in_a_day",
+                "name": "Можно работать сменами по 4–6 часов в день"
+            }
+        ],
+        "working_time_modes": [
+            {
+                "id": "start_after_sixteen",
+                "name": "Можно начинать работать после 16:00"
+            }
+        ],
+        "accept_temporary": true,
+        "professional_roles": [
+            {
+                "id": "132",
+                "name": "Учитель, преподаватель, педагог"
+            }
+        ],
+        "accept_incomplete_resumes": true
+    },
+    {
+        "id": "78808883",
+        "premium": false,
+        "name": "Тьютор",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "4",
+            "name": "Новосибирск",
+            "url": "https://api.hh.ru/areas/4"
+        },
+        "salary": {
+            "from": 40000,
+            "to": 40000,
             "currency": "RUR",
             "gross": false
         },
@@ -780,44 +931,44 @@
             "name": "Открытая"
         },
         "address": {
-            "city": "Омск",
-            "street": "улица Красный Путь",
-            "building": "103",
-            "lat": 55.003079,
-            "lng": 73.347326,
+            "city": "Новосибирск",
+            "street": "улица Ползунова",
+            "building": "7",
+            "lat": 55.062967,
+            "lng": 82.986357,
             "description": null,
-            "raw": "Омск, улица Красный Путь, 103",
+            "raw": "Новосибирск, улица Ползунова, 7",
             "metro": null,
             "metro_stations": [],
-            "id": "6879119"
+            "id": "6599020"
         },
         "response_url": null,
         "sort_point_distance": null,
-        "published_at": "2023-04-10T12:10:22+0300",
-        "created_at": "2023-04-10T12:10:22+0300",
+        "published_at": "2023-04-09T07:42:05+0300",
+        "created_at": "2023-04-09T07:42:05+0300",
         "archived": false,
-        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=79098392",
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=78808883",
         "insider_interview": null,
-        "url": "https://api.hh.ru/vacancies/79098392?host=hh.ru",
+        "url": "https://api.hh.ru/vacancies/78808883?host=hh.ru",
         "adv_response_url": null,
-        "alternate_url": "https://hh.ru/vacancy/79098392",
+        "alternate_url": "https://hh.ru/vacancy/78808883",
         "relations": [],
         "employer": {
-            "id": "5873296",
-            "name": "Перемыщева Олеся Николаевна",
-            "url": "https://api.hh.ru/employers/5873296",
-            "alternate_url": "https://hh.ru/employer/5873296",
+            "id": "5771952",
+            "name": "Международная Школа Новосибирска",
+            "url": "https://api.hh.ru/employers/5771952",
+            "alternate_url": "https://hh.ru/employer/5771952",
             "logo_urls": {
-                "original": "https://hhcdn.ru/employer-logo-original/1054530.jpg",
-                "90": "https://hhcdn.ru/employer-logo/5838761.jpeg",
-                "240": "https://hhcdn.ru/employer-logo/5838762.jpeg"
+                "90": "https://hhcdn.ru/employer-logo/4032371.png",
+                "240": "https://hhcdn.ru/employer-logo/4032372.png",
+                "original": "https://hhcdn.ru/employer-logo-original/897921.png"
             },
-            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=5873296",
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=5771952",
             "trusted": true
         },
         "snippet": {
-            "requirement": "Высшее педагогическое/психологическое образование. Приверженность принципам гуманной педагогики. Грамотная речь. Ответственность. Пунктуальность. Любовь к детям.",
-            "responsibility": "Помощь <highlighttext>педагогу</highlighttext> в организации среды. Участие в образовательной деятельности детей."
+            "requirement": "Высокие коммуникативные навыки как в работе с детьми, так и со взрослыми (<highlighttext>педагоги</highlighttext>, родители). Личные качества: Любовь к детям. Доброжелательность. ",
+            "responsibility": "Построение индивидуального образовательного маршрута для ребенка. Индивидуальный подход к ребенку в учебном процессе, учитывающий психологические и биологические особенности ученика. "
         },
         "contacts": null,
         "schedule": null,
@@ -831,7 +982,7 @@
                 "name": "Учитель, преподаватель, педагог"
             }
         ],
-        "accept_incomplete_resumes": true
+        "accept_incomplete_resumes": false
     },
     {
         "id": "79091973",
@@ -975,20 +1126,20 @@
         "accept_incomplete_resumes": false
     },
     {
-        "id": "78582317",
+        "id": "78881426",
         "premium": false,
-        "name": "Куратор онлайн-школы",
+        "name": "Педагог дошкольного образования",
         "department": null,
         "has_test": false,
         "response_letter_required": false,
         "area": {
-            "id": "76",
-            "name": "Ростов-на-Дону",
-            "url": "https://api.hh.ru/areas/76"
+            "id": "2",
+            "name": "Санкт-Петербург",
+            "url": "https://api.hh.ru/areas/2"
         },
         "salary": {
-            "from": 25000,
-            "to": 40000,
+            "from": 40000,
+            "to": 56000,
             "currency": "RUR",
             "gross": false
         },
@@ -996,34 +1147,106 @@
             "id": "open",
             "name": "Открытая"
         },
-        "address": null,
+        "address": {
+            "city": "Санкт-Петербург",
+            "street": "Лыжный переулок",
+            "building": "8к1",
+            "lat": 59.999633,
+            "lng": 30.197201,
+            "description": null,
+            "raw": "Санкт-Петербург, Лыжный переулок, 8к1",
+            "metro": null,
+            "metro_stations": [],
+            "id": "5898246"
+        },
         "response_url": null,
         "sort_point_distance": null,
-        "published_at": "2023-04-11T15:31:15+0300",
-        "created_at": "2023-04-11T15:31:15+0300",
+        "published_at": "2023-04-10T11:13:25+0300",
+        "created_at": "2023-04-10T11:13:25+0300",
         "archived": false,
-        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=78582317",
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=78881426",
         "insider_interview": null,
-        "url": "https://api.hh.ru/vacancies/78582317?host=hh.ru",
+        "url": "https://api.hh.ru/vacancies/78881426?host=hh.ru",
         "adv_response_url": null,
-        "alternate_url": "https://hh.ru/vacancy/78582317",
+        "alternate_url": "https://hh.ru/vacancy/78881426",
         "relations": [],
         "employer": {
-            "id": "5113416",
-            "name": "Чупина Александра Геннадьевна",
-            "url": "https://api.hh.ru/employers/5113416",
-            "alternate_url": "https://hh.ru/employer/5113416",
+            "id": "4884560",
+            "name": "Детский центр развития речи",
+            "url": "https://api.hh.ru/employers/4884560",
+            "alternate_url": "https://hh.ru/employer/4884560",
             "logo_urls": {
-                "original": "https://hhcdn.ru/employer-logo-original/806174.png",
-                "90": "https://hhcdn.ru/employer-logo/3665583.png",
-                "240": "https://hhcdn.ru/employer-logo/3665584.png"
+                "240": "https://hhcdn.ru/employer-logo/3983664.jpeg",
+                "90": "https://hhcdn.ru/employer-logo/3983663.jpeg",
+                "original": "https://hhcdn.ru/employer-logo-original/885741.jpg"
             },
-            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=5113416",
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4884560",
             "trusted": true
         },
         "snippet": {
-            "requirement": "Постоянно обучаться и прокачивать свои навыки. Лучшие практические знания и современные инструменты для эффективной удаленной работы. Доступ к авторской технологии...",
-            "responsibility": "Помогать ученикам в освоении материалов курса по авторской технологии. Проверять домашние заданий на платформе ГетКурс. Проводить онлайн-встречи с учениками. "
+            "requirement": "Профильное образование. Опыт работы от 1 года (с учетом стажировок).",
+            "responsibility": "На постоянной основе - ведение групповых занятий по готовым конспектам: развитие 2-3 и 4-5, математика, азбука, подготовка к школе..."
+        },
+        "contacts": null,
+        "schedule": null,
+        "working_days": [],
+        "working_time_intervals": [
+            {
+                "id": "from_four_to_six_hours_in_a_day",
+                "name": "Можно работать сменами по 4–6 часов в день"
+            }
+        ],
+        "working_time_modes": [],
+        "accept_temporary": true,
+        "professional_roles": [
+            {
+                "id": "132",
+                "name": "Учитель, преподаватель, педагог"
+            }
+        ],
+        "accept_incomplete_resumes": false
+    },
+    {
+        "id": "79132739",
+        "premium": false,
+        "name": "Учитель/Преподаватель Онлайн платформы",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "159",
+            "name": "Астана",
+            "url": "https://api.hh.ru/areas/159"
+        },
+        "salary": null,
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": null,
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2023-04-11T07:47:10+0300",
+        "created_at": "2023-04-11T07:47:10+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=79132739",
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/79132739?host=hh.ru",
+        "adv_response_url": null,
+        "alternate_url": "https://hh.ru/vacancy/79132739",
+        "relations": [],
+        "employer": {
+            "id": "4686754",
+            "name": "International Law Company (ILC)",
+            "url": "https://api.hh.ru/employers/4686754",
+            "alternate_url": "https://hh.ru/employer/4686754",
+            "logo_urls": null,
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4686754",
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Имеете диплом квалифицирующий вас как <highlighttext>преподавателя</highlighttext>: казахского, русского языка, математики, история Казахстан, всемирная история, география, биология, физики, химии. ",
+            "responsibility": "Сохранить нервные клетки. Освободить несколько часов в неделю на себя. Проведение онлайн занятия по платформе ZOOM. Создавать и поддерживать атмосферу..."
         },
         "contacts": null,
         "schedule": null,
@@ -1101,255 +1324,6 @@
             {
                 "id": "40",
                 "name": "Другое"
-            }
-        ],
-        "accept_incomplete_resumes": false
-    },
-    {
-        "id": "78808883",
-        "premium": false,
-        "name": "Тьютор",
-        "department": null,
-        "has_test": false,
-        "response_letter_required": false,
-        "area": {
-            "id": "4",
-            "name": "Новосибирск",
-            "url": "https://api.hh.ru/areas/4"
-        },
-        "salary": {
-            "from": 40000,
-            "to": 40000,
-            "currency": "RUR",
-            "gross": false
-        },
-        "type": {
-            "id": "open",
-            "name": "Открытая"
-        },
-        "address": {
-            "city": "Новосибирск",
-            "street": "улица Ползунова",
-            "building": "7",
-            "lat": 55.062967,
-            "lng": 82.986357,
-            "description": null,
-            "raw": "Новосибирск, улица Ползунова, 7",
-            "metro": null,
-            "metro_stations": [],
-            "id": "6599020"
-        },
-        "response_url": null,
-        "sort_point_distance": null,
-        "published_at": "2023-04-09T07:42:05+0300",
-        "created_at": "2023-04-09T07:42:05+0300",
-        "archived": false,
-        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=78808883",
-        "insider_interview": null,
-        "url": "https://api.hh.ru/vacancies/78808883?host=hh.ru",
-        "adv_response_url": null,
-        "alternate_url": "https://hh.ru/vacancy/78808883",
-        "relations": [],
-        "employer": {
-            "id": "5771952",
-            "name": "Международная Школа Новосибирска",
-            "url": "https://api.hh.ru/employers/5771952",
-            "alternate_url": "https://hh.ru/employer/5771952",
-            "logo_urls": {
-                "90": "https://hhcdn.ru/employer-logo/4032371.png",
-                "240": "https://hhcdn.ru/employer-logo/4032372.png",
-                "original": "https://hhcdn.ru/employer-logo-original/897921.png"
-            },
-            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=5771952",
-            "trusted": true
-        },
-        "snippet": {
-            "requirement": "Высокие коммуникативные навыки как в работе с детьми, так и со взрослыми (<highlighttext>педагоги</highlighttext>, родители). Личные качества: Любовь к детям. Доброжелательность. ",
-            "responsibility": "Построение индивидуального образовательного маршрута для ребенка. Индивидуальный подход к ребенку в учебном процессе, учитывающий психологические и биологические особенности ученика. "
-        },
-        "contacts": null,
-        "schedule": null,
-        "working_days": [],
-        "working_time_intervals": [],
-        "working_time_modes": [],
-        "accept_temporary": false,
-        "professional_roles": [
-            {
-                "id": "132",
-                "name": "Учитель, преподаватель, педагог"
-            }
-        ],
-        "accept_incomplete_resumes": false
-    },
-    {
-        "id": "78956020",
-        "premium": false,
-        "name": "Преподаватель русского языка",
-        "department": null,
-        "has_test": false,
-        "response_letter_required": false,
-        "area": {
-            "id": "3",
-            "name": "Екатеринбург",
-            "url": "https://api.hh.ru/areas/3"
-        },
-        "salary": {
-            "from": 40000,
-            "to": 70000,
-            "currency": "RUR",
-            "gross": true
-        },
-        "type": {
-            "id": "open",
-            "name": "Открытая"
-        },
-        "address": {
-            "city": "Екатеринбург",
-            "street": "Красноармейская улица",
-            "building": "10",
-            "lat": 56.837174,
-            "lng": 60.615288,
-            "description": null,
-            "raw": "Екатеринбург, Красноармейская улица, 10",
-            "metro": {
-                "station_name": "Площадь 1905 года",
-                "line_name": "Север-Юг",
-                "station_id": "48.266",
-                "line_id": "48",
-                "lat": 56.837982,
-                "lng": 60.59734
-            },
-            "metro_stations": [
-                {
-                    "station_name": "Площадь 1905 года",
-                    "line_name": "Север-Юг",
-                    "station_id": "48.266",
-                    "line_id": "48",
-                    "lat": 56.837982,
-                    "lng": 60.59734
-                }
-            ],
-            "id": "2975368"
-        },
-        "response_url": null,
-        "sort_point_distance": null,
-        "published_at": "2023-04-11T16:01:49+0300",
-        "created_at": "2023-04-11T16:01:49+0300",
-        "archived": false,
-        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=78956020",
-        "insider_interview": null,
-        "url": "https://api.hh.ru/vacancies/78956020?host=hh.ru",
-        "adv_response_url": null,
-        "alternate_url": "https://hh.ru/vacancy/78956020",
-        "relations": [],
-        "employer": {
-            "id": "47457",
-            "name": "Талисман, Лингвистический центр",
-            "url": "https://api.hh.ru/employers/47457",
-            "alternate_url": "https://hh.ru/employer/47457",
-            "logo_urls": {
-                "240": "https://hhcdn.ru/employer-logo/3453682.png",
-                "90": "https://hhcdn.ru/employer-logo/3453681.png",
-                "original": "https://hhcdn.ru/employer-logo-original/753181.png"
-            },
-            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=47457",
-            "trusted": true
-        },
-        "snippet": {
-            "requirement": "Опыт работы <highlighttext>преподавателем</highlighttext>/<highlighttext>учителем</highlighttext> русского языка. Эмпатия. Грамотность. Готовность к обучению (работаем по авторской методике).",
-            "responsibility": "Обучение клиентов русскому языку. Проведение мониторинга качества обучения. Предоставление обратной связи заказчикам услуги. Методическая работа. Участие во внеучебной деятельности."
-        },
-        "contacts": null,
-        "schedule": null,
-        "working_days": [],
-        "working_time_intervals": [],
-        "working_time_modes": [],
-        "accept_temporary": false,
-        "professional_roles": [
-            {
-                "id": "132",
-                "name": "Учитель, преподаватель, педагог"
-            }
-        ],
-        "accept_incomplete_resumes": false
-    },
-    {
-        "id": "78881426",
-        "premium": false,
-        "name": "Педагог дошкольного образования",
-        "department": null,
-        "has_test": false,
-        "response_letter_required": false,
-        "area": {
-            "id": "2",
-            "name": "Санкт-Петербург",
-            "url": "https://api.hh.ru/areas/2"
-        },
-        "salary": {
-            "from": 40000,
-            "to": 56000,
-            "currency": "RUR",
-            "gross": false
-        },
-        "type": {
-            "id": "open",
-            "name": "Открытая"
-        },
-        "address": {
-            "city": "Санкт-Петербург",
-            "street": "Лыжный переулок",
-            "building": "8к1",
-            "lat": 59.999633,
-            "lng": 30.197201,
-            "description": null,
-            "raw": "Санкт-Петербург, Лыжный переулок, 8к1",
-            "metro": null,
-            "metro_stations": [],
-            "id": "5898246"
-        },
-        "response_url": null,
-        "sort_point_distance": null,
-        "published_at": "2023-04-10T11:13:25+0300",
-        "created_at": "2023-04-10T11:13:25+0300",
-        "archived": false,
-        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=78881426",
-        "insider_interview": null,
-        "url": "https://api.hh.ru/vacancies/78881426?host=hh.ru",
-        "adv_response_url": null,
-        "alternate_url": "https://hh.ru/vacancy/78881426",
-        "relations": [],
-        "employer": {
-            "id": "4884560",
-            "name": "Детский центр развития речи",
-            "url": "https://api.hh.ru/employers/4884560",
-            "alternate_url": "https://hh.ru/employer/4884560",
-            "logo_urls": {
-                "240": "https://hhcdn.ru/employer-logo/3983664.jpeg",
-                "90": "https://hhcdn.ru/employer-logo/3983663.jpeg",
-                "original": "https://hhcdn.ru/employer-logo-original/885741.jpg"
-            },
-            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=4884560",
-            "trusted": true
-        },
-        "snippet": {
-            "requirement": "Профильное образование. Опыт работы от 1 года (с учетом стажировок).",
-            "responsibility": "На постоянной основе - ведение групповых занятий по готовым конспектам: развитие 2-3 и 4-5, математика, азбука, подготовка к школе..."
-        },
-        "contacts": null,
-        "schedule": null,
-        "working_days": [],
-        "working_time_intervals": [
-            {
-                "id": "from_four_to_six_hours_in_a_day",
-                "name": "Можно работать сменами по 4–6 часов в день"
-            }
-        ],
-        "working_time_modes": [],
-        "accept_temporary": true,
-        "professional_roles": [
-            {
-                "id": "132",
-                "name": "Учитель, преподаватель, педагог"
             }
         ],
         "accept_incomplete_resumes": false
@@ -1455,20 +1429,20 @@
         "accept_incomplete_resumes": false
     },
     {
-        "id": "79080454",
+        "id": "78956020",
         "premium": false,
-        "name": "Учитель начальных классов",
+        "name": "Преподаватель русского языка",
         "department": null,
         "has_test": false,
         "response_letter_required": false,
         "area": {
-            "id": "1",
-            "name": "Москва",
-            "url": "https://api.hh.ru/areas/1"
+            "id": "3",
+            "name": "Екатеринбург",
+            "url": "https://api.hh.ru/areas/3"
         },
         "salary": {
-            "from": 90000,
-            "to": null,
+            "from": 40000,
+            "to": 70000,
             "currency": "RUR",
             "gross": true
         },
@@ -1477,40 +1451,60 @@
             "name": "Открытая"
         },
         "address": {
-            "city": "Москва",
-            "street": "Ставропольская улица",
-            "building": "16",
-            "lat": 55.680047,
-            "lng": 37.74808,
+            "city": "Екатеринбург",
+            "street": "Красноармейская улица",
+            "building": "10",
+            "lat": 56.837174,
+            "lng": 60.615288,
             "description": null,
-            "raw": "Москва, Ставропольская улица, 16",
-            "metro": null,
-            "metro_stations": [],
-            "id": "5690119"
+            "raw": "Екатеринбург, Красноармейская улица, 10",
+            "metro": {
+                "station_name": "Площадь 1905 года",
+                "line_name": "Север-Юг",
+                "station_id": "48.266",
+                "line_id": "48",
+                "lat": 56.837982,
+                "lng": 60.59734
+            },
+            "metro_stations": [
+                {
+                    "station_name": "Площадь 1905 года",
+                    "line_name": "Север-Юг",
+                    "station_id": "48.266",
+                    "line_id": "48",
+                    "lat": 56.837982,
+                    "lng": 60.59734
+                }
+            ],
+            "id": "2975368"
         },
         "response_url": null,
         "sort_point_distance": null,
-        "published_at": "2023-04-10T08:38:41+0300",
-        "created_at": "2023-04-10T08:38:41+0300",
+        "published_at": "2023-04-11T16:01:49+0300",
+        "created_at": "2023-04-11T16:01:49+0300",
         "archived": false,
-        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=79080454",
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=78956020",
         "insider_interview": null,
-        "url": "https://api.hh.ru/vacancies/79080454?host=hh.ru",
+        "url": "https://api.hh.ru/vacancies/78956020?host=hh.ru",
         "adv_response_url": null,
-        "alternate_url": "https://hh.ru/vacancy/79080454",
+        "alternate_url": "https://hh.ru/vacancy/78956020",
         "relations": [],
         "employer": {
-            "id": "3877848",
-            "name": "НЧУ ОО СОШ Карьера",
-            "url": "https://api.hh.ru/employers/3877848",
-            "alternate_url": "https://hh.ru/employer/3877848",
-            "logo_urls": null,
-            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=3877848",
+            "id": "47457",
+            "name": "Талисман, Лингвистический центр",
+            "url": "https://api.hh.ru/employers/47457",
+            "alternate_url": "https://hh.ru/employer/47457",
+            "logo_urls": {
+                "240": "https://hhcdn.ru/employer-logo/3453682.png",
+                "90": "https://hhcdn.ru/employer-logo/3453681.png",
+                "original": "https://hhcdn.ru/employer-logo-original/753181.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=47457",
             "trusted": true
         },
         "snippet": {
-            "requirement": "Педагогический стаж от 5 лет. С опытом работы по программе 'Школа 2100'. Последнее место работы - школа. ИКТ - компетентность (использование в...",
-            "responsibility": "В соответствии с должностной инструкцией <highlighttext>учителя</highlighttext> начальных классов. Проведение уроков по русскому языку, математике и литературному чтению."
+            "requirement": "Опыт работы <highlighttext>преподавателем</highlighttext>/<highlighttext>учителем</highlighttext> русского языка. Эмпатия. Грамотность. Готовность к обучению (работаем по авторской методике).",
+            "responsibility": "Обучение клиентов русскому языку. Проведение мониторинга качества обучения. Предоставление обратной связи заказчикам услуги. Методическая работа. Участие во внеучебной деятельности."
         },
         "contacts": null,
         "schedule": null,
