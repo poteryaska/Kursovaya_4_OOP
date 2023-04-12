@@ -43,6 +43,8 @@ class SuperJob(Job):
         response = requests.get(self.__url, headers=api_key, params=params)
         if response.status_code == 200:
             vacancies = response.json()["objects"]
+            for key in vacancies:
+
             with open("vacancies_SJ.json", "w", encoding='utf-8') as write_file:
                 json.dump(vacancies, write_file, indent=4, ensure_ascii=False)
             for vacancy in vacancies:
@@ -57,11 +59,11 @@ a = SuperJob()
 a.get_vacancies('репетитор')
 
 class Vacancy:
-    def __init__(self, name_vacancy, url_vacancy, salary_from, salary_to=None, work_experience):
-        self.name_vacancy = name_vacancy
-        self.url_vacancy = url_vacancy
-        self.salary_from = salary_from
-        self.salary_to = salary_to
-        self.experience = work_experience
-        pass
+    def __init__(self, name_vacancy, url_vacancy, work_experience, salary_from, salary_to=None):
+        self.__name_vacancy = name_vacancy
+        self.__url_vacancy = url_vacancy
+        self.__salary_from = salary_from
+        self.__salary_to = salary_to
+        self.__experience = work_experience
+
 
