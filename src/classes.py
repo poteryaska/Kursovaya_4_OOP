@@ -43,12 +43,22 @@ class SuperJob(Job):
         response = requests.get(self.__url, headers=api_key, params=params)
         if response.status_code == 200:
             vacancies = response.json()["objects"]
-            for key in vacancies:
-
+            for vacancy in vacancies:
+                vacancy["name_vacancy"] = vacancy.pop("profession")
+                vacancy["url_vacancy"] = vacancy.pop("link")
+                vacancy["salary_from"] = vacancy.pop("payment_from")
+                vacancy["salary_to"] = vacancy.pop("payment_to")
+                vacancy["salary_to"] = vacancy.pop("payment_to")
             with open("vacancies_SJ.json", "w", encoding='utf-8') as write_file:
                 json.dump(vacancies, write_file, indent=4, ensure_ascii=False)
-            for vacancy in vacancies:
-                print(vacancy["profession"], vacancy["link"])
+                for vacancy in vacancies:
+                    print(vacancy["name_vacancy"], vacancy["salary_from"])
+            # with open("vacancies_SJ.json", "w", encoding='utf-8') as write_file:
+            #     json.dump(vacancies, write_file, indent=4, ensure_ascii=False)
+            # for vacancy in vacancies:
+            #     vacancy["name_vacancy"] = vacancy.pop("profession")
+            #     vacancy["url_vacancy"] = vacancy.pop("link")
+            #     print(vacancy["name_vacancy"], vacancy["url_vacancy"])
         else:
             print("Error:", response.status_code)
 
@@ -59,7 +69,7 @@ a = SuperJob()
 a.get_vacancies('репетитор')
 
 class Vacancy:
-    def __init__(self, name_vacancy, url_vacancy, work_experience, salary_from, salary_to=None):
+    def __init__(self, name_vacancy, url_vacancy, work_experience, salary_from=None, salary_to=None):
         self.__name_vacancy = name_vacancy
         self.__url_vacancy = url_vacancy
         self.__salary_from = salary_from
