@@ -14,6 +14,7 @@ class Job(ABC):
 class HeadHunterApi(Job):
     def __init__(self, url="https://api.hh.ru/vacancies"):
         self.__url = url
+        self.__vacancies = []
 
     def connect_api(self):
         return self.__url
@@ -23,16 +24,36 @@ class HeadHunterApi(Job):
         response = requests.get(self.__url, params=params)
         if response.status_code == 200:
             vacancies = response.json()["items"]
-            with open("vacancies.json", "w", encoding='utf-8') as write_file:
-                json.dump(vacancies, write_file, indent=4, ensure_ascii=False)
             for vacancy in vacancies:
-                print(vacancy["name"], vacancy["url"])
+                if vacancy["salary"] is not None:
+                    salary_from = vacancy["salary"]["from"]
+                    if salary_from is None:
+                        salary_from = 0
+                    salary_to = vacancy["salary"]["to"]
+                    if salary_to is None:
+                        salary_to = 0
+                else:
+                    salary_from = 0
+                    salary_to = 0
+                self.__vacancies.append({"name_vacancy": (vacancy["name"]).lower(),
+                                         "url_vacancy": (vacancy["apply_alternate_url"]).lower(),
+                                         "salary_from": (str(salary_from)).lower(),
+                                         "salary_to": (str(salary_to)).lower(),
+                                         "town": (vacancy["area"]["name"]).lower(),
+                                         })
+
+            with open("vacancies.json", "w", encoding='utf-8') as write_file:
+                json.dump(self.__vacancies, write_file, indent=4, ensure_ascii=False)
+                for vacancy in self.__vacancies:
+                    print(vacancy["name_vacancy"], vacancy["salary_from"])
         else:
             print("Error:", response.status_code)
+
 
 class SuperJob(Job):
     def __init__(self, url="https://api.superjob.ru/2.0/vacancies/"):
         self.__url = url
+        self.__vacancies = []
 
     def connect_api(self):
         return self.__url
@@ -44,21 +65,17 @@ class SuperJob(Job):
         if response.status_code == 200:
             vacancies = response.json()["objects"]
             for vacancy in vacancies:
-                vacancy["name_vacancy"] = vacancy.pop("profession")
-                vacancy["url_vacancy"] = vacancy.pop("link")
-                vacancy["salary_from"] = vacancy.pop("payment_from")
-                vacancy["salary_to"] = vacancy.pop("payment_to")
-                vacancy["salary_to"] = vacancy.pop("payment_to")
+                self.__vacancies.append({"name_vacancy": (vacancy["profession"]).lower(),
+                                         "url_vacancy": (vacancy["link"]).lower(),
+                                         "salary_from": (str(vacancy["payment_from"])).lower(),
+                                         "salary_to": (str(vacancy["payment_to"])).lower(),
+                                         "town": (vacancy["town"]["title"]).lower(),
+                                         })
+
             with open("vacancies_SJ.json", "w", encoding='utf-8') as write_file:
-                json.dump(vacancies, write_file, indent=4, ensure_ascii=False)
-                for vacancy in vacancies:
+                json.dump(self.__vacancies, write_file, indent=4, ensure_ascii=False)
+                for vacancy in self.__vacancies:
                     print(vacancy["name_vacancy"], vacancy["salary_from"])
-            # with open("vacancies_SJ.json", "w", encoding='utf-8') as write_file:
-            #     json.dump(vacancies, write_file, indent=4, ensure_ascii=False)
-            # for vacancy in vacancies:
-            #     vacancy["name_vacancy"] = vacancy.pop("profession")
-            #     vacancy["url_vacancy"] = vacancy.pop("link")
-            #     print(vacancy["name_vacancy"], vacancy["url_vacancy"])
         else:
             print("Error:", response.status_code)
 
@@ -69,11 +86,11 @@ a = SuperJob()
 a.get_vacancies('репетитор')
 
 class Vacancy:
-    def __init__(self, name_vacancy, url_vacancy, work_experience, salary_from=None, salary_to=None):
+    def __init__(self, name_vacancy, url_vacancy, town, salary_from=None, salary_to=None):
         self.__name_vacancy = name_vacancy
         self.__url_vacancy = url_vacancy
         self.__salary_from = salary_from
         self.__salary_to = salary_to
-        self.__experience = work_experience
+        self.__town = town
 
 
