@@ -64,12 +64,14 @@ class SuperJob(Job):
         if response.status_code == 200:
             vacancies = response.json()["objects"]
             for vacancy in vacancies:
-                self.__vacancies.append({"name_vacancy": (vacancy["profession"]).lower(),
-                                         "url_vacancy": (vacancy["link"]).lower(),
-                                         "salary_from": (str(vacancy["payment_from"])).lower(),
-                                         "salary_to": (str(vacancy["payment_to"])).lower(),
-                                         "town": (vacancy["town"]["title"]).lower(),
-                                         })
+                Vacancy(vacancy["profession"]).lower(), (vacancy["link"]).lower(), (str(vacancy["payment_from"])).lower(), (str(vacancy["payment_to"])).lower(), (vacancy["town"]["title"]).lower())
+
+                # self.__vacancies.append({"name_vacancy": (vacancy["profession"]).lower(),
+                #                          "url_vacancy": (vacancy["link"]).lower(),
+                #                          "salary_from": (str(vacancy["payment_from"])).lower(),
+                #                          "salary_to": (str(vacancy["payment_to"])).lower(),
+                #                          "town": (vacancy["town"]["title"]).lower(),
+                #                          })
             with open("vacancies_SJ.json", "w", encoding='utf-8') as write_file:
                 json.dump(self.__vacancies, write_file, indent=4, ensure_ascii=False)
                 for vacancy in self.__vacancies:
@@ -77,14 +79,14 @@ class SuperJob(Job):
         else:
             print("Error:", response.status_code)
 
-# v = HeadHunterApi()
-# v.get_vacancies('репетитор')
-# print('--------------------------------')
-# a = SuperJob()
-# a.get_vacancies('репетитор')
+v = HeadHunterApi()
+v.get_vacancies('репетитор')
+print('--------------------------------')
+a = SuperJob()
+a.get_vacancies('репетитор')
 
 class Vacancy:
-    def __init__(self, name_vacancy, url_vacancy, town, salary_from:str=None, salary_to=None):
+    def __init__(self, name_vacancy, url_vacancy, town, salary_from=None, salary_to=None):
         self.__name_vacancy = name_vacancy
         self.__url_vacancy = url_vacancy
         self.__salary_from = salary_from
