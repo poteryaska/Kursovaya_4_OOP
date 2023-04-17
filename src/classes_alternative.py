@@ -3,33 +3,27 @@ import requests
 import json
 
 class Job(ABC):
-    @abstractmethod
-    def connect_api(self, keyword):
-        pass
 
     @abstractmethod
     def get_vacancies(self, keyword):
         pass
 
 class HeadHunterApi(Job):
-    def connect_api(self, keyword):
-        pass
 
     def get_vacancies(self, keyword):
         url = "https://api.hh.ru/vacancies"
         all_pages = 5
         page = 0
+        all_vacancies = []
         while page < all_pages:
             params = {
                 "text": keyword,
                 "page": page,
                 "per_page": 100
             }
-            a = requests.get(url, params=params)
-
-            response = []
-            if a.status_code == 200:
-                vacancies = a.json()["items"]
+            response = requests.get(url, params=params)
+            if response.status_code == 200:
+                vacancies = response.json()["items"]
                 for vacancy in vacancies:
                     if vacancy["salary"] is not None:
                         salary_from = vacancy["salary"]["from"]
@@ -41,7 +35,7 @@ class HeadHunterApi(Job):
                     else:
                         salary_from = 0
                         salary_to = 0
-                    response.append({
+                    all_vacancies.append({
                         "name_vacancy": (vacancy["name"]).lower(),
                          "url_vacancy": (vacancy["apply_alternate_url"]).lower(),
                          "salary_from": (str(salary_from)).lower(),
@@ -49,9 +43,9 @@ class HeadHunterApi(Job):
                          "town": (vacancy["area"]["name"]).lower(),
                     })
             else:
-                print("Error:", a.status_code)
+                print("Error:", response.status_code)
             page += 1
-            return response
+        return all_vacancies
 
 
 class SuperJob(Job):
@@ -163,14 +157,29 @@ class JSONSaver(Saver):
             vacancies.append(Vacancy(item["name_vacancy"], item["url_vacancy"], item["town"], item["salary_from"], item["salary_to"]))
         return vacancies
 
+    def get_vacancies_by_salary(self, salary_min, salary_max):
+        for vacancy in self.select():
 
-a = HeadHunterApi()
+            if (int(vacancy.salary_from) >= salary_min) and (salary_min <= int(vacancy.salary_to) <= salary_max):
+                # if int(vacancy.salary_to) == 0:
+
+                print(vacancy)
+
+a = SuperJob()
+
 
 data = a.get_vacancies('Python')
 # print(data)
 f = JSONSaver()
 f.add_vacancy(data)
 data = f.select()
+f.get_vacancies_by_salary(15000, 200000)
+
+
+# # best = get_best_vacancies(data, 10)
+# f.get_vacancies_by_salary(150000, 200000)
+# for d in data:
+#     print(d, end='\n')
 
 def sort_by_salary_min(data):
     data = sorted(data, reverse=False)
@@ -180,10 +189,6 @@ def sort_by_salary_max(data):
     data = sorted(data, reverse=True)
     return data
 
-data1 = sort_by_salary_max(data)
-
-counters = 0
-for data in data1:
-    print(data, end='\n')
-    counters += 1
-print(counters)
+# data1 = sort_by_salary_max(data)
+#
+# print(len(data1))

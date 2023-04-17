@@ -49,7 +49,7 @@ class HeadHunterApi(Job):
 
 
 class SuperJob(Job):
-    def connect_api(self, keyword, page=6):
+    def connect_api(self, keyword, page=1):
         url = "https://api.superjob.ru/2.0/vacancies/"
         api_key = {'X-Api-App-Id': 'v3.h.4455282.7eb36007ef58eb15c52a61399870fe45fa6e854d.1fda0d61019317af27f3361fe0d54e6e149fef37'}
         params = {
@@ -78,9 +78,9 @@ class SuperJob(Job):
 # v = HeadHunterApi()
 # v.get_vacancies('репетитор')
 print('--------------------------------')
-# a = SuperJob()
-# a.connect_api('Python')
-# print(a.get_vacancies('Python'))
+a = SuperJob()
+a.connect_api('Python')
+print(a.get_vacancies('Python'))
 
 class Vacancy:
     __slots__ = ['__name_vacancy', '__url_vacancy', '__town', '__salary_from', '__salary_to']
@@ -120,6 +120,9 @@ class Vacancy:
         if int(self.__salary_from) < int(other.__salary_from):
             return self.__salary_from
 
+    # def __gt__(self, other):
+    #     if int(self.__salary_to) > int(other.__salary_to):
+    #         return self.__salary_to
 
 
 class JSONSaver:
@@ -137,12 +140,11 @@ class JSONSaver:
 
     def get_vacancies_by_salary(self, salary_min, salary_max):
         for vacancy in self.select():
-            if int(vacancy.__salary_from) <= salary_min <= int(vacancy.__salary_to):
+
+            if (int(vacancy.salary_from) >= salary_min) and (int(vacancy.salary_to) <= salary_max):
                 print(vacancy)
-            elif int(vacancy.__salary_from) <= salary_max <= int(vacancy.__salary_to):
-                print(vacancy)
 
 
 
-    def delete_vacancy(self):
+    def delete_vacancy(self, salary_min):
         pass
