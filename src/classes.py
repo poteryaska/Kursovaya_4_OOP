@@ -49,7 +49,7 @@ class HeadHunterApi(Job):
 
 
 class SuperJob(Job):
-    def connect_api(self, keyword, page=1):
+    def connect_api(self, keyword, page=2):
         url = "https://api.superjob.ru/2.0/vacancies/"
         api_key = {'X-Api-App-Id': 'v3.h.4455282.7eb36007ef58eb15c52a61399870fe45fa6e854d.1fda0d61019317af27f3361fe0d54e6e149fef37'}
         params = {
