@@ -169,9 +169,9 @@ class JSONSaver:
         result = [vacancy for vacancy in self.select() if vacancy.town == city.lower()]
         return result
 
-a = SuperJobApi()
+a = HeadHunterApi()
 
-data = a.get_vacancies('репетитор')
+data = a.get_vacancies('Python')
 # print(data)
 f = JSONSaver()
 g = f.add_vacancy(data)
@@ -180,7 +180,7 @@ print(d)
 for j in d:
     print(j, end='\n')
 # data = f.select()
-# print(len(data))
+print(len(d))
 # get_best_vacancies(data, 5)
 # f.get_vacancies_by_salary(10000, 200000)
 

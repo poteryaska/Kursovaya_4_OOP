@@ -2,87 +2,96 @@ from abc import ABC, abstractmethod
 import requests
 import json
 
+# from utils import *
+
 class Job(ABC):
-    @abstractmethod
-    def connect_api(self, keyword, page):
-        pass
+    """Абстрактный метод для взаимодействия через API"""
 
     @abstractmethod
-    def get_vacancies(self, keyword):
+    def get_vacancies(self, keyword: str):
         pass
+
 
 class HeadHunterApi(Job):
-    def connect_api(self, keyword, page=1):
+    """Класс для работы с сайтом HeadHunter,для получения данных по вакансиям"""
+
+    def get_vacancies(self, keyword: str):
+        """Через API получаем данные по ключевому слову"""
         url = "https://api.hh.ru/vacancies"
-        params = {
-            "text": keyword,
-            "page": page,
-            "per_page": 100
-        }
-        return requests.get(url, params=params)
-
-    def get_vacancies(self, keyword):
-        response = []
-        if self.connect_api(keyword).status_code == 200:
-            vacancies = self.connect_api(keyword).json()["items"]
-            for vacancy in vacancies:
-                if vacancy["salary"] is not None:
-                    salary_from = vacancy["salary"]["from"]
-                    if salary_from is None:
+        all_pages = 5
+        page = 0
+        all_vacancies = []
+        while page < all_pages:
+            params = {
+                "text": keyword,
+                "page": page,
+                "per_page": 100
+            }
+            response = requests.get(url, params=params)
+            if response.status_code == 200:
+                vacancies = response.json()["items"]
+                for vacancy in vacancies:
+                    if vacancy["salary"] is not None:
+                        salary_from = vacancy["salary"]["from"]
+                        if salary_from is None:
+                            salary_from = 0
+                        salary_to = vacancy["salary"]["to"]
+                        if salary_to is None:
+                            salary_to = 0
+                    else:
                         salary_from = 0
-                    salary_to = vacancy["salary"]["to"]
-                    if salary_to is None:
                         salary_to = 0
-                else:
-                    salary_from = 0
-                    salary_to = 0
-                response.append({
-                    "name_vacancy": (vacancy["name"]).lower(),
-                     "url_vacancy": (vacancy["apply_alternate_url"]).lower(),
-                     "salary_from": (str(salary_from)).lower(),
-                     "salary_to": (str(salary_to)).lower(),
-                     "town": (vacancy["area"]["name"]).lower(),
-                })
-        else:
-            print("Error:", self.connect_api(keyword).status_code)
-        return response
+                    all_vacancies.append({
+                        "name_vacancy": (vacancy["name"]).lower(),
+                        "url_vacancy": (vacancy["apply_alternate_url"]).lower(),
+                        "salary_from": (str(salary_from)).lower(),
+                        "salary_to": (str(salary_to)).lower(),
+                        "town": (vacancy["area"]["name"]).lower(),
+                    })
+            else:
+                print("Error:", response.status_code)
+            page += 1
+        return all_vacancies
 
 
-class SuperJob(Job):
-    def connect_api(self, keyword, page=2):
+class SuperJobApi(Job):
+    """Класс для работы с сайтом SuperJob,для получения данных по вакансиям"""
+
+    def get_vacancies(self, keyword: str):
+        """Через API получаем данные по ключевому слову"""
         url = "https://api.superjob.ru/2.0/vacancies/"
-        api_key = {'X-Api-App-Id': 'v3.h.4455282.7eb36007ef58eb15c52a61399870fe45fa6e854d.1fda0d61019317af27f3361fe0d54e6e149fef37'}
-        params = {
-            "keyword": keyword,
-            "page": page,
-            "count": 100
-        }
-        return requests.get(url, headers=api_key, params=params)
+        api_key = {
+            'X-Api-App-Id': 'v3.h.4455282.7eb36007ef58eb15c52a61399870fe45fa6e854d.1fda0d61019317af27f3361fe0d54e6e149fef37'}
+        page = 1
+        page_more = True
+        all_vacancies = []
+        while page_more:
+            params = {
+                "keyword": keyword,
+                "count": 100,
+                "page": page
+            }
+            response = requests.get(url, headers=api_key, params=params)
 
-    def get_vacancies(self, keyword):
-        response = []
-        if self.connect_api(keyword).status_code == 200:
-            vacancies = self.connect_api(keyword).json()["objects"]
-            for vacancy in vacancies:
-                response.append({
-                    "name_vacancy": (vacancy["profession"]).lower(),
-                     "url_vacancy": (vacancy["link"]).lower(),
-                     "salary_from": (str(vacancy["payment_from"])).lower(),
-                     "salary_to": (str(vacancy["payment_to"])).lower(),
-                     "town": (vacancy["town"]["title"]).lower(),
-                })
-        else:
-            print("Error:", self.connect_api(keyword).status_code)
-        return response
+            if response.status_code == 200:
+                vacancies = response.json()["objects"]
+                for vacancy in vacancies:
+                    all_vacancies.append({
+                        "name_vacancy": (vacancy["profession"]).lower(),
+                        "url_vacancy": (vacancy["link"]).lower(),
+                        "salary_from": (str(vacancy["payment_from"])).lower(),
+                        "salary_to": (str(vacancy["payment_to"])).lower(),
+                        "town": (vacancy["town"]["title"]).lower(),
+                    })
+            else:
+                print("Error:", response.status_code)
+            page_more = response.json()["more"]
+            page += 1
+        return all_vacancies
 
-# v = HeadHunterApi()
-# v.get_vacancies('репетитор')
-print('--------------------------------')
-a = SuperJob()
-a.connect_api('Python')
-print(a.get_vacancies('Python'))
 
 class Vacancy:
+    """Базовый класс для вакансий"""
     __slots__ = ['__name_vacancy', '__url_vacancy', '__town', '__salary_from', '__salary_to']
 
     def __init__(self, name_vacancy, url_vacancy, town, salary_from=None, salary_to=None):
@@ -112,21 +121,30 @@ class Vacancy:
     def town(self):
         return self.__town
 
-
     def __str__(self):
-        return f'{self.__name_vacancy}: {self.__url_vacancy}, {self.__town} \nзп от:{self.__salary_from} до {self.__salary_to} рублей'
+        return f'Наименование вакансии: {self.__name_vacancy}\nСсылка: {self.__url_vacancy}\nГород: {self.__town}\nЗарплата от: {self.__salary_from} до {self.__salary_to} рублей\n{"--" * 200}\n'
 
     def __lt__(self, other):
         if int(self.__salary_from) < int(other.__salary_from):
-            return self.__salary_from
+            return self.__name_vacancy
 
-    # def __gt__(self, other):
-    #     if int(self.__salary_to) > int(other.__salary_to):
-    #         return self.__salary_to
+
+class HHVacancy(Vacancy):
+    """Класс для вакансий HH"""
+
+    def __str__(self):
+        return f'Данные с сайта HeadHunter \n{super().__str__()}'
+
+
+class SJVacancy(Vacancy):
+    """Класс для вакансий SJ"""
+
+    def __str__(self):
+        return f'Данные с сайта SuperJob\n{super().__str__()}'
 
 
 class JSONSaver:
-    def add_vacancy(self, response):
+    def add_vacancy(self, response: list):
         with open("vacancies.json", "w", encoding='utf-8') as write_file:
             json.dump(response, write_file, indent=4, ensure_ascii=False)
 
@@ -135,16 +153,61 @@ class JSONSaver:
             data = json.load(file)
         vacancies = []
         for item in data:
-            vacancies.append(Vacancy(item["name_vacancy"], item["url_vacancy"], item["town"], item["salary_from"], item["salary_to"]))
+            vacancies.append(Vacancy(item["name_vacancy"], item["url_vacancy"], item["town"], item["salary_from"],
+                                     item["salary_to"]))
         return vacancies
 
-    def get_vacancies_by_salary(self, salary_min, salary_max):
+    def get_vacancies_by_salary(self, salary_min: int, salary_max: int):
         for vacancy in self.select():
-
-            if (int(vacancy.salary_from) >= salary_min) and (int(vacancy.salary_to) <= salary_max):
+            if (int(vacancy.salary_from) >= salary_min) and (salary_min <= int(vacancy.salary_to) <= salary_max):
                 print(vacancy)
 
+    def delete_vacancy(self, salary_min: int):
+        result = [vacancy for vacancy in self.select() if int(vacancy.salary_from) >= salary_min]
+        return result
 
+    def get_vacancies_by_city(self, select, city: str):
+        for vacancy in select:
+            if vacancy.town == city.lower():
+                print(vacancy)
 
-    def delete_vacancy(self, salary_min):
-        pass
+class HHJsonSAver(JSONSaver):
+    def select(self):
+        with open("vacancies.json", "r", encoding='utf-8') as file:
+            data = json.load(file)
+        vacancies = []
+        for item in data:
+            vacancies.append(HHVacancy(item["name_vacancy"], item["url_vacancy"], item["town"], item["salary_from"],
+                                       item["salary_to"]))
+        return vacancies
+
+class SJJsonSAver(JSONSaver):
+    def select(self):
+        with open("vacancies.json", "r", encoding='utf-8') as file:
+            data = json.load(file)
+        vacancies = []
+        for item in data:
+            vacancies.append(SJVacancy(item["name_vacancy"], item["url_vacancy"], item["town"], item["salary_from"],
+                                      item["salary_to"]))
+        return vacancies
+
+# a = SuperJobApi()
+#
+# data = a.get_vacancies('Python')
+# # print(data)
+# f = SJJsonSAver()
+# g = f.add_vacancy(data)
+# d = f.get_vacancies_by_city('Москва')
+# print(d)
+# for j in d:
+#     print(j, end='\n')
+# # data = f.select()
+# print(len(d))
+# # get_best_vacancies(data, 5)
+# # f.get_vacancies_by_salary(10000, 200000)
+#
+#
+# # # best = get_best_vacancies(data, 10)
+# # f.get_vacancies_by_salary(150000, 200000)
+# # for d in data:
+# #     print(d, end='\n')
