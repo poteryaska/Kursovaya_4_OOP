@@ -176,12 +176,14 @@ data = a.get_vacancies('Python')
 f = JSONSaver()
 g = f.add_vacancy(data)
 d = f.get_vacancies_by_city('Москва')
-print(d)
-for j in d:
+x = sort_by_salary_max(d)
+
+# print(d)
+for j in x:
     print(j, end='\n')
 # data = f.select()
-print(len(d))
-# get_best_vacancies(data, 5)
+# print(len(d))
+# print(get_best_vacancies(data, 5))
 # f.get_vacancies_by_salary(10000, 200000)
 
 

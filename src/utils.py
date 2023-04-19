@@ -1,14 +1,28 @@
-# from classes import *
-def sort_by_salary_min(data):
-    data = sorted(data, reverse=False)
-    return data
 
-def sort_by_salary_max(data):
-    data = sorted(data, reverse=True)
-    return data
 
-def get_best_vacancies(vacancies, quantity):
+def get_vacancies_by_city(vacancies: list, city: str):
+    '''Получаем вакансии по наименованию введенного города'''
+    result = [vacancy for vacancy in vacancies if vacancy.town == city.lower()]
+    return result
+def sort_by_salary_min(vacancies: list):
+    '''Сортировка вакансий по возрастанию минимальной зарплаты'''
+    vacancies = sorted(vacancies, reverse=False)
+    return vacancies
+
+def sort_by_salary_max(vacancies: list):
+    '''Сортировка вакансий по убыванию минимальной зарплаты'''
     vacancies = sorted(vacancies, reverse=True)
-    best_vacancies = vacancies[0:quantity]
+    return vacancies
+
+def get_best_vacancies(vacancies: list, quantity:str):
+    '''Получаем лучшие вакансии по минимальной зарплате'''
+    vacancies = sorted(vacancies, reverse=True)
+    best_vacancies = vacancies[0:int(quantity)]
     for vacancy in best_vacancies:
         print(vacancy)
+
+options = [
+    {1: 'Сортировать по убыванию минимальной зарплаты'},
+    {2: 'Сортировать по возрастанию минимальной зарплаты'},
+    {3: 'Сортировать по минимальной и максимальной суммой зарплаты'},
+          ]

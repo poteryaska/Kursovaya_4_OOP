@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
 import requests
 import json
-
-# from utils import *
+from utils import *
 
 class Job(ABC):
     """Абстрактный метод для взаимодействия через API"""
@@ -10,10 +9,13 @@ class Job(ABC):
     @abstractmethod
     def get_vacancies(self, keyword: str):
         pass
-
+    def __str__(self):
+        return f'Данные с сайта'
 
 class HeadHunterApi(Job):
     """Класс для работы с сайтом HeadHunter,для получения данных по вакансиям"""
+    def __str__(self):
+        return f'{super().__str__()} HeadHunter'
 
     def get_vacancies(self, keyword: str):
         """Через API получаем данные по ключевому слову"""
@@ -56,6 +58,8 @@ class HeadHunterApi(Job):
 
 class SuperJobApi(Job):
     """Класс для работы с сайтом SuperJob,для получения данных по вакансиям"""
+    def __str__(self):
+        return f'{super().__str__()} SuperJob'
 
     def get_vacancies(self, keyword: str):
         """Через API получаем данные по ключевому слову"""
@@ -72,7 +76,6 @@ class SuperJobApi(Job):
                 "page": page
             }
             response = requests.get(url, headers=api_key, params=params)
-
             if response.status_code == 200:
                 vacancies = response.json()["objects"]
                 for vacancy in vacancies:
@@ -125,30 +128,19 @@ class Vacancy:
         return f'Наименование вакансии: {self.__name_vacancy}\nСсылка: {self.__url_vacancy}\nГород: {self.__town}\nЗарплата от: {self.__salary_from} до {self.__salary_to} рублей\n{"--" * 200}\n'
 
     def __lt__(self, other):
-        if int(self.__salary_from) < int(other.__salary_from):
-            return self.__name_vacancy
+        return int(self.__salary_from) < int(other.__salary_from)
 
-
-class HHVacancy(Vacancy):
-    """Класс для вакансий HH"""
-
-    def __str__(self):
-        return f'Данные с сайта HeadHunter \n{super().__str__()}'
-
-
-class SJVacancy(Vacancy):
-    """Класс для вакансий SJ"""
-
-    def __str__(self):
-        return f'Данные с сайта SuperJob\n{super().__str__()}'
 
 
 class JSONSaver:
     def add_vacancy(self, response: list):
+        '''Сохранение информации о вакансиях в файл'''
         with open("vacancies.json", "w", encoding='utf-8') as write_file:
             json.dump(response, write_file, indent=4, ensure_ascii=False)
 
     def select(self):
+        '''Открытие файла с вакансиями для создания списка
+        с экземплярами класса Vacancy для взаимодействия с пользователем'''
         with open("vacancies.json", "r", encoding='utf-8') as file:
             data = json.load(file)
         vacancies = []
@@ -157,41 +149,11 @@ class JSONSaver:
                                      item["salary_to"]))
         return vacancies
 
-    def get_vacancies_by_salary(self, salary_min: int, salary_max: int):
-        for vacancy in self.select():
-            if (int(vacancy.salary_from) >= salary_min) and (salary_min <= int(vacancy.salary_to) <= salary_max):
-                print(vacancy)
 
-    def delete_vacancy(self, salary_min: int):
-        result = [vacancy for vacancy in self.select() if int(vacancy.salary_from) >= salary_min]
-        return result
+    # def get_vacancies_by_city(self, vacancies, city: str):
+    #     result = [vacancy for vacancy in vacancies if vacancy.town == city.lower()]
+    #     return result
 
-    def get_vacancies_by_city(self, select, city: str):
-        result = [vacancy for vacancy in select if vacancy.town == city.lower()]
-        return result
-        # for vacancy in select:
-        #     if vacancy.town == city.lower():
-        #         print(vacancy)
-
-class HHJsonSAver(JSONSaver):
-    def select(self):
-        with open("vacancies.json", "r", encoding='utf-8') as file:
-            data = json.load(file)
-        vacancies = []
-        for item in data:
-            vacancies.append(HHVacancy(item["name_vacancy"], item["url_vacancy"], item["town"], item["salary_from"],
-                                       item["salary_to"]))
-        return vacancies
-
-class SJJsonSAver(JSONSaver):
-    def select(self):
-        with open("vacancies.json", "r", encoding='utf-8') as file:
-            data = json.load(file)
-        vacancies = []
-        for item in data:
-            vacancies.append(SJVacancy(item["name_vacancy"], item["url_vacancy"], item["town"], item["salary_from"],
-                                      item["salary_to"]))
-        return vacancies
 
 # a = SuperJobApi()
 #
