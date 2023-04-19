@@ -167,9 +167,11 @@ class JSONSaver:
         return result
 
     def get_vacancies_by_city(self, select, city: str):
-        for vacancy in select:
-            if vacancy.town == city.lower():
-                print(vacancy)
+        result = [vacancy for vacancy in select if vacancy.town == city.lower()]
+        return result
+        # for vacancy in select:
+        #     if vacancy.town == city.lower():
+        #         print(vacancy)
 
 class HHJsonSAver(JSONSaver):
     def select(self):
