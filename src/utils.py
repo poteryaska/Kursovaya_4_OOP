@@ -27,30 +27,30 @@ options = [
     {3: 'Сортировать по минимальной и максимальной суммой зарплаты'},]
 
 
-
-while True:
-    #main menu
-    print("MAIN vvedite chto delat")
-    x = input()
-
-    #menu poisk
-    if x == '1':
-        print("POISK")
-
-        while True:
-            print("kuda podklucjaytda")
-            y = input()
-            if y == '1':
-                print("HH")
-            elif y == '2':
-                print("SJ")
-
-    # sdfsdfsdfsdf
-    elif x == '2':
-        print("PERVOE")
-    # exit
-    elif x == "X":
-        break
+# #
+# while True:
+#     #main menu
+#     print("MAIN vvedite chto delat")
+#     x = input()
+#
+#     #menu poisk
+#     if x == '1':
+#         print("POISK")
+#
+#         while True:
+#             print("kuda podklucjaytda")
+#             y = int(input())
+#             if y == 1:
+#                 print("HH")
+#             elif y == 2:
+#                 print("SJ")
+#
+#     # sdfsdfsdfsdf
+#     elif x == '2':
+#         print("PERVOE")
+#     # exit
+#     elif x == "X":
+#         break
 
 
 

@@ -16,7 +16,6 @@ def main():
             file = JSONSaver()
             file.add_vacancy(get_data)
             vacancies = file.select()
-            print(platform)
             print(f'Всё, что нашлось:\n')
 
             for vacancy in vacancies:

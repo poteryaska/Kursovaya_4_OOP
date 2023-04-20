@@ -141,13 +141,17 @@ class JSONSaver:
     def select(self):
         '''Открытие файла с вакансиями для создания списка
         с экземплярами класса Vacancy для взаимодействия с пользователем'''
-        with open("vacancies.json", "r", encoding='utf-8') as file:
-            data = json.load(file)
-        vacancies = []
-        for item in data:
-            vacancies.append(Vacancy(item["name_vacancy"], item["url_vacancy"], item["town"], item["salary_from"],
-                                     item["salary_to"]))
-        return vacancies
+        try:
+            with open("vacancies.json", "r", encoding='utf-8') as file:
+                data = json.load(file)
+            vacancies = []
+            for item in data:
+                vacancies.append(Vacancy(item["name_vacancy"], item["url_vacancy"], item["town"], item["salary_from"],
+                                         item["salary_to"]))
+            return vacancies
+        except ValueError:
+            print('Файл для обработки неверного формата, либо пустой')
+
 
 
     # def get_vacancies_by_city(self, vacancies, city: str):
