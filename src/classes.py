@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import requests
 import json
-from utils import *
+from utils import get_best_vacancies
 
 class Job(ABC):
     """Абстрактный метод для взаимодействия через API"""
