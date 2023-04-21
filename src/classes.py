@@ -15,7 +15,7 @@ class Job(ABC):
 class HeadHunterApi(Job):
     """Класс для работы с сайтом HeadHunter,для получения данных по вакансиям"""
     def __str__(self):
-        return f'{super().__str__()} HeadHunter'
+        return f'{super().__str__()} HeadHunter:'
 
     def get_vacancies(self, keyword: str):
         """Через API получаем данные по ключевому слову"""
@@ -59,7 +59,7 @@ class HeadHunterApi(Job):
 class SuperJobApi(Job):
     """Класс для работы с сайтом SuperJob,для получения данных по вакансиям"""
     def __str__(self):
-        return f'{super().__str__()} SuperJob'
+        return f'{super().__str__()} SuperJob:'
 
     def get_vacancies(self, keyword: str):
         """Через API получаем данные по ключевому слову"""

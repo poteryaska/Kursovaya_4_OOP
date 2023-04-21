@@ -2,6 +2,10 @@
 
 def get_vacancies_by_city(vacancies: list, city: str):
     '''Получаем вакансии по наименованию введенного города'''
+    # result = []
+    # for vacancy in vacancies:
+    #     if vacancy.town == city.lower():
+    #         result.append(vacancy)
     result = [vacancy for vacancy in vacancies if vacancy.town == city.lower()]
     return result
 def sort_by_salary_min(vacancies: list):
