@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-import requests
 import json
-from utils import get_best_vacancies
+import requests
+
 
 class Job(ABC):
     """Абстрактный метод для взаимодействия через API"""
@@ -9,11 +9,14 @@ class Job(ABC):
     @abstractmethod
     def get_vacancies(self, keyword: str):
         pass
+
     def __str__(self):
         return f'Данные с сайта'
 
+
 class HeadHunterApi(Job):
     """Класс для работы с сайтом HeadHunter,для получения данных по вакансиям"""
+
     def __str__(self):
         return f'{super().__str__()} HeadHunter:'
 
@@ -58,6 +61,7 @@ class HeadHunterApi(Job):
 
 class SuperJobApi(Job):
     """Класс для работы с сайтом SuperJob,для получения данных по вакансиям"""
+
     def __str__(self):
         return f'{super().__str__()} SuperJob:'
 
@@ -65,7 +69,7 @@ class SuperJobApi(Job):
         """Через API получаем данные по ключевому слову"""
         url = "https://api.superjob.ru/2.0/vacancies/"
         api_key = {
-            'X-Api-App-Id': 'v3.h.4455282.7eb36007ef58eb15c52a61399870fe45fa6e854d.1fda0d61019317af27f3361fe0d54e6e149fef37'}
+            'X-Api-App-Id': ''}
         page = 1
         page_more = True
         all_vacancies = []
@@ -97,7 +101,7 @@ class Vacancy:
     """Базовый класс для вакансий"""
     __slots__ = ['__name_vacancy', '__url_vacancy', '__town', '__salary_from', '__salary_to']
 
-    def __init__(self, name_vacancy, url_vacancy, town, salary_from=None, salary_to=None):
+    def __init__(self, name_vacancy: str, url_vacancy: str, town: str, salary_from: str = None, salary_to: str = None):
         self.__name_vacancy = name_vacancy
         self.__url_vacancy = url_vacancy
         self.__salary_from = salary_from
@@ -131,7 +135,6 @@ class Vacancy:
         return int(self.__salary_from) < int(other.__salary_from)
 
 
-
 class JSONSaver:
     def add_vacancy(self, response: list):
         '''Сохранение информации о вакансиях в файл'''
@@ -151,31 +154,3 @@ class JSONSaver:
             return vacancies
         except ValueError:
             print('Файл для обработки неверного формата, либо пустой')
-
-
-
-    # def get_vacancies_by_city(self, vacancies, city: str):
-    #     result = [vacancy for vacancy in vacancies if vacancy.town == city.lower()]
-    #     return result
-
-
-# a = SuperJobApi()
-#
-# data = a.get_vacancies('Python')
-# # print(data)
-# f = SJJsonSAver()
-# g = f.add_vacancy(data)
-# d = f.get_vacancies_by_city('Москва')
-# print(d)
-# for j in d:
-#     print(j, end='\n')
-# # data = f.select()
-# print(len(d))
-# # get_best_vacancies(data, 5)
-# # f.get_vacancies_by_salary(10000, 200000)
-#
-#
-# # # best = get_best_vacancies(data, 10)
-# # f.get_vacancies_by_salary(150000, 200000)
-# # for d in data:
-# #     print(d, end='\n')

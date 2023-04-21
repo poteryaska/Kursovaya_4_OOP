@@ -1,11 +1,12 @@
-from utils import *
-from classes import *
+from src.utils import get_vacancies_by_city, sort_by_salary_min, sort_by_salary_max, get_best_vacancies
+from src.classes import HeadHunterApi, SuperJobApi, JSONSaver
 
 
 def main():
     '''Взаимодействие с пользователем'''
     try:
         while True:
+            '''Пользователь выбирает платформу для поиска вакансий'''
             choice_platform = input('Выберите сайт для поиска вакансий\n'
                                     'Введите цифру:\n1, если ищем на HeadHunter\n'
                                     '2, если ищем на SuperJob\n').replace(' ', '')
@@ -20,6 +21,7 @@ def main():
                 for vacancy in vacancies:
                     print(vacancy)
                 while True:
+                    '''Сортировка по городу'''
                     choice_city = input('Показать вакансии по какому-то одному городу?\n'
                                         'Введите цифру:\n1 - да\n2 - нет\n').replace(' ', '')
                     if choice_city == '1':
@@ -32,6 +34,7 @@ def main():
                             for vacancy in vacancies_by_city:
                                 print(vacancy)
                         while True:
+                            '''Сортировка по минимальной зарплате'''
                             other_sorties = input('Выберите сортировку:\nВведите сооответствующую цифру:\n'
                                                   '1 - Сортировать по убыванию минимальной зарплаты\n'
                                                   '2 - Сортировать по возрастанию минимальной зарплаты\n').replace(' ',
@@ -51,6 +54,7 @@ def main():
                             else:
                                 print('Введите только цифру 1 или 2')
                         while True:
+                            '''Вывод лучших вакансий по зарплате'''
                             best_vacancies = input('Вывести лучшие 10 вакансий по зарплате?\nВведите цифру:\n'
                                                    '1 - Да\n'
                                                    '2 - Нет, этого достаточно\n').replace(' ', '')
@@ -66,6 +70,7 @@ def main():
                     elif choice_city == '2':
                         print('Имеются и другие варианты сортировки:')
                         while True:
+                            '''Сортировка по минимальной зарплате'''
                             other_sorties = input('Выберите сортировку:\nВведите цифру, сооответствующую запросу:\n'
                                                   '1 - Сортировать по убыванию минимальной зарплаты\n'
                                                   '2 - Сортировать по возрастанию минимальной зарплаты\n').replace(' ',
@@ -83,6 +88,7 @@ def main():
                             else:
                                 print('Введите только цифру 1 или 2')
                         while True:
+                            '''Вывод лучших вакансий по зарплате'''
                             best_vacancies = input('Вывести лучшие 10 вакансий по зарплате?\nВведите цифру:\n'
                                                    '1 - Да\n'
                                                    '2 - Нет, этого достаточно\n').replace(' ', '')
@@ -100,7 +106,7 @@ def main():
                 break
 
 
-            elif choice_platform == 2:
+            elif choice_platform == '2':
                 platform = SuperJobApi()
                 keyword = input('Введите одно ключевое слово для поиска вакансий\n')
                 get_data = platform.get_vacancies(keyword)
@@ -111,6 +117,7 @@ def main():
                 for vacancy in vacancies:
                     print(vacancy)
                 while True:
+                    '''Сортировка по городу'''
                     choice_city = input('Показать вакансии по какому-то одному городу?\n'
                                         'Введите цифру:\n1 - да\n2 - нет\n').replace(' ', '')
                     if choice_city == '1':
@@ -123,6 +130,7 @@ def main():
                             for vacancy in vacancies_by_city:
                                 print(vacancy)
                         while True:
+                            '''Сортировка по минимальной зарплате'''
                             other_sorties = input('Выберите сортировку:\nВведите сооответствующую цифру:\n'
                                                   '1 - Сортировать по убыванию минимальной зарплаты\n'
                                                   '2 - Сортировать по возрастанию минимальной зарплаты\n').replace(' ',
@@ -142,6 +150,7 @@ def main():
                             else:
                                 print('Введите только цифру 1 или 2')
                         while True:
+                            '''Вывод лучших вакансий по зарплате'''
                             best_vacancies = input('Вывести лучшие 10 вакансий по зарплате?\nВведите цифру:\n'
                                                    '1 - Да\n'
                                                    '2 - Нет, этого достаточно\n').replace(' ', '')
@@ -157,6 +166,7 @@ def main():
                     elif choice_city == '2':
                         print('Имеются и другие варианты сортировки:')
                         while True:
+                            '''Сортировка по минимальной зарплате'''
                             other_sorties = input('Выберите сортировку:\nВведите цифру, сооответствующую запросу:\n'
                                                   '1 - Сортировать по убыванию минимальной зарплаты\n'
                                                   '2 - Сортировать по возрастанию минимальной зарплаты\n').replace(' ',
@@ -174,6 +184,7 @@ def main():
                             else:
                                 print('Введите только цифру 1 или 2')
                         while True:
+                            '''Вывод лучших вакансий по зарплате'''
                             best_vacancies = input('Вывести лучшие 10 вакансий по зарплате?\nВведите цифру:\n'
                                                    '1 - Да\n'
                                                    '2 - Нет, этого достаточно\n').replace(' ', '')
@@ -191,7 +202,7 @@ def main():
                 break
 
             else:
-                    print('Введите только цифру 1 или 2')
+                print('Введите только цифру 1 или 2')
 
     except ValueError:
         print('Введите только цифру 1 или 2')
